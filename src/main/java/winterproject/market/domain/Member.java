@@ -1,6 +1,8 @@
 package winterproject.market.domain;
 
 import lombok.Getter;
+import lombok.Setter;
+import winterproject.market.controller.MemberForm;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter
+@Getter @Setter
 public class Member {
 
     @Id
@@ -22,4 +24,15 @@ public class Member {
 
     @OneToMany(mappedBy = "member")
     private List<Item> items = new ArrayList<>();
+
+    public Member(MemberForm memberForm) {
+        this.id = memberForm.getId();
+        this.password = memberForm.getPassword();
+        this.email = memberForm.getEmail();
+        this.nickname = memberForm.getNickname();
+    }
+
+    public Member() {
+
+    }
 }
