@@ -15,7 +15,7 @@ public class Member {
 
     @Id
     @Column(name = "member_id")
-    private long id;
+    private String id;
     private String password;
     private String email;
     private String nickname;
