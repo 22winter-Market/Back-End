@@ -8,7 +8,7 @@ import javax.validation.constraints.NotEmpty;
 @Getter
 @Setter
 public class MemberForm {
-    @NotEmpty
+    @NotEmpty(message = "id는 필수입니다.")
     private String id;
     private String password;
     private String email;
