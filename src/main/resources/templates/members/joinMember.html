@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+  <style>
+    #overlappedID {background-color: GhostWhite; width: 15%; height: 40px;}
+    .olmessagef {color: red; font-style: Italic;}
+    .olmessaget {color: blue; font-style: Italic;}
+  </style>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -9,6 +14,7 @@
     <div>
       <label th:for="id">id</label>
     <input type="text" th:field="*{id}" placeholder="id를 입력하세요">
+      <p th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></p>
     </div>
       <div>
       <label th:for="password">password</label>
@@ -26,3 +32,4 @@
   </form>
 </body>
 </html>
+
