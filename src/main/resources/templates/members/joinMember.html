@@ -25,14 +25,17 @@
     <div>
         <label th:for="password">password</label>
             <input type="password" th:field="*{password}">
+        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
     </div>
     <div>
         <label th:for="email">e-mail</label>
             <input type="email" th:field="*{email}">
+        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
     </div>
     <div>
         <label th:for="nickname">nickname</label>
             <input type="text" th:field="*{nickname}">
+        <p th:if="${#fields.hasErrors('nickname')}" th:errors="*{nickname}"></p>
     </div>
 
 
@@ -44,7 +47,7 @@
         </div>
         <div class="col">
             <button class="w-100 btn btn-success btn-lg"
-                    th:onclick="|location.href='@{/index.html}'|" type="button">취소
+                    th:onclick="|location.href='../'|" type="button">취소
             </button>
         </div>
     </div>
