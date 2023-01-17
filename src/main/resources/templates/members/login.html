@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <title>Login</title>
@@ -15,16 +15,21 @@
     <div class="py-5 text-center">
         <h2>Login Form</h2>
     </div>
-
+<form action="/members/login" method="post" th:object="${loginForm}">
     <div>
         <label for="userid">ID</label>
-        <input type="text" id="userid" name="userID"
+        <input type="text" id="userid" name="userID" th:field="*{id}"
                placeholder="id 입력">
+        <p th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></p>
     </div>
     <div>
         <label for="userpw">PASSWORD</label>
-        <input type="text" id="userpw" name="userpw"
+        <input type="text" id="userpw" name="userpw" th:field="*{password}"
                placeholder="password 입력">
+        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+    </div>
+    <div>
+        <p th:if="${#fields.hasErrors('error')}" th:errors="*{error}"></p>
     </div>
 
     <hr class="my-4">  <!--선 -->
@@ -35,11 +40,11 @@
         </div>
         <div class="col">
             <button class="w-100 btn btn-success btn-lg"
-                    onclick="location.href='index.html'" type="button">취소
+                    onclick="location.href='../'" type="button">취소
             </button>
         </div>
     </div>
-
+</form>
 </div> <!-- /container -->
 </body>
 </html>
