@@ -1,0 +1,20 @@
+
+.clicked {
+    color: gold;
+}
+
+.method{
+    border:none;
+}
+.method:hover {
+    background-color: orange;
+}
+
+.method:focus {
+    box-shadow: 0 0 0 3px purple;
+}
+
+.method:active {
+    background-color: red;
+}
+

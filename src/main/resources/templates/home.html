@@ -25,7 +25,6 @@
       <button class="w-100 btn btn-warning btn-lg"
               onclick="location.href='/members/join'"> 회원가입
       </button>
-
     </div>
     <div class = "col" th:if="${session.authInfo == null}">
       <button class="w-100 btn btn-success btn-lg"
@@ -35,6 +34,11 @@
     <div class = "col" th:if="${session.authInfo != null}">
       <button class="w-100 btn btn-success btn-lg"
               onclick="location.href='/members/logout'"> 로그아웃
+      </button>
+    </div>
+    <div class = "col">
+      <button class="w-100 btn btn-warning btn-lg"
+              onclick="location.href='/additem'"> 상품등록
       </button>
     </div>
   </div>
