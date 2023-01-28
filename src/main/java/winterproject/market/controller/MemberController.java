@@ -25,6 +25,10 @@ public class MemberController {
     @PostMapping("members/join")
     public String createMember(@Valid MemberForm memberForm, BindingResult bindingResult) {
 
+        if (bindingResult.hasErrors()) {
+            return "members/joinMember";
+        }
+
         Member member = new Member(memberForm);
         memberService.join(member, bindingResult);
 
