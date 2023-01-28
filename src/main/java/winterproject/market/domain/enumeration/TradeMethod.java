@@ -5,6 +5,7 @@ public enum TradeMethod {
 
     static public TradeMethod of(String method) {
         if (method.equals("ONLINE")) return ONLINE;
-        return OFFLINE;
+        if (method.equals("OFFLINE")) return OFFLINE;
+        return null;
     }
 }

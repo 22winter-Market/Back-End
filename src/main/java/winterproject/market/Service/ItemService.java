@@ -1,6 +1,7 @@
 package winterproject.market.Service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import winterproject.market.Repository.ItemRepository;
@@ -12,6 +13,7 @@ import winterproject.market.domain.Member;
 @Service
 @RequiredArgsConstructor
 @Transactional
+@Slf4j
 public class ItemService {
     private final MemberRepository memberRepository;
     private final ItemRepository itemRepository;

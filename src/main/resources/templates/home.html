@@ -36,9 +36,9 @@
               onclick="location.href='/members/logout'"> 로그아웃
       </button>
     </div>
-    <div class = "col">
+    <div class = "col" th:if="${session.authInfo != null}">
       <button class="w-100 btn btn-warning btn-lg"
-              onclick="location.href='/additem'"> 상품등록
+              onclick="location.href='/items/additem'"> 상품등록
       </button>
     </div>
   </div>
