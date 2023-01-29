@@ -1,11 +1,13 @@
 package winterproject.market.Service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import winterproject.market.Repository.MemberRepository;
+import winterproject.market.controller.MemberForm;
 import winterproject.market.domain.Member;
 
 import java.util.List;
@@ -13,15 +15,16 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Transactional
+@Slf4j
 public class MemberService {
     private final MemberRepository memberRepository;
 
-    public String join(Member member, BindingResult bindingResult) {
+    public String join(Member member, BindingResult bindingResult) throws IllegalStateException{
         try {
             validateDuplicate(member, bindingResult);
             memberRepository.save(member);
         } catch (IllegalStateException e) {
-            return null;
+            throw e;
         }
         return member.getId();
     }
@@ -34,9 +37,9 @@ public class MemberService {
         }
     }
 
-    public String findById(Member member) {
-        List<Member> findMembers = memberRepository.findById(member.getId());
-        return findMembers.get(0).getId();
+    public Member findById(String id) {
+        Member member = memberRepository.findOneById(id);
+        return member;
     }
 
     public int overlappedID(String id) {
@@ -44,5 +47,12 @@ public class MemberService {
         if (findById.isEmpty())
             return 0;
         return 1;
+    }
+
+    public void updateProfile(MemberForm memberForm, BindingResult bindingResult) {
+        Member member = memberRepository.findOneById(memberForm.getId());
+        member.setEmail(memberForm.getEmail());
+        member.setPassword(memberForm.getPassword());
+        member.setNickname(memberForm.getNickname());
     }
 }
