@@ -27,6 +27,11 @@
             <input type="password" th:field="*{password}">
         <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
     </div>
+        <div>
+            <label th:for="passwordRepeat">password</label>
+            <input type="password" th:field="*{passwordRepeat}">
+            <p th:if="${#fields.hasErrors('passwordRepeat')}" th:errors="*{passwordRepeat}"></p>
+        </div>
     <div>
         <label th:for="email">e-mail</label>
             <input type="email" th:field="*{email}">
