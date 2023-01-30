@@ -27,4 +27,5 @@ public class MemberRepository {
     public Member findOneById(String id) {
         return em.find(Member.class, id);
     }
+
 }

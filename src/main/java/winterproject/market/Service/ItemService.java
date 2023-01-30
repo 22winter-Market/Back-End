@@ -1,5 +1,6 @@
 package winterproject.market.Service;
 
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,7 @@ import winterproject.market.domain.Member;
 @Transactional
 @Slf4j
 public class ItemService {
+
     private final MemberRepository memberRepository;
     private final ItemRepository itemRepository;
 
@@ -36,5 +38,9 @@ public class ItemService {
 
     public Item findItemById(Long id) {
         return itemRepository.findById(id);
+    }
+
+    public List<Item> findItems(Member member) {
+        return itemRepository.findAllByMember(member);
     }
 }
