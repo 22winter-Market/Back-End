@@ -28,7 +28,6 @@ public class ItemController {
 
     @PostMapping("items/additem")
     public String createItem(ItemForm itemForm) {
-        log.info("member id : " + itemForm.getMemberId());
         itemService.itemUpload(itemForm);
         return "redirect:/";
     }

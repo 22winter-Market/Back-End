@@ -16,8 +16,6 @@ public class ItemRepository {
     private final EntityManager em;
 
     public Long save(Item item) {
-        log.info("item : " + item.toString());
-        log.info("member : " + item.getMember());
         item.getMember().getItems().add(item);
         em.persist(item);
         return item.getId();

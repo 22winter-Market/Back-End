@@ -1,9 +1,11 @@
 package winterproject.market.controller;
 
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.NotEmpty;
+import org.springframework.web.multipart.MultipartFile;
 
 @Getter
 @Setter
@@ -19,6 +21,8 @@ public class ItemForm {
 
     @NotEmpty(message = "가격이 없습니다.")
     private int price;
+
+    private List<MultipartFile> imageFiles;
 
     @NotEmpty
     private String tradeMethod;
