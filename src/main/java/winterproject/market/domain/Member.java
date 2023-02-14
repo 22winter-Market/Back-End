@@ -58,8 +58,6 @@ public class Member {
     }
 
     public void update(MemberForm memberForm, BindingResult bindingResult) {
-        log.info("password : " + memberForm.getPassword());
-        log.info("passwordRepeat : " + memberForm.getPasswordRepeat());
         checkPassword(memberForm, bindingResult);
         this.email = email;
         this.nickname = nickname;
