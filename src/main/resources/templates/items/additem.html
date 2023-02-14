@@ -19,7 +19,7 @@
 </head>
 
 <body>
-<form role="form" action="/items/additem" th:object="${itemForm}" method="post">
+<form role="form" action="/items/additem" enctype="multipart/form-data" th:object="${itemForm}" method="post">
 <div class="container">
   <div class="py-5 text-center">
     <h2>물품 등록</h2>
@@ -51,6 +51,11 @@
   <div>
     <label th:for="tradePlace">거래 장소</label>
     <input type="text" th:field="*{tradePlace}">
+  </div>
+
+  <div>
+    <label th:for="imageFiles">거래 장소</label>
+    <input type="file" th:field="*{imageFiles}" multiple="multiple">
   </div>
 
   <div>
